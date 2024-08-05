@@ -107,7 +107,57 @@ void sapXepDong(int a[MAX][MAX], int n) {
 	}
 }
 
+void sapXepCot(int a[MAX][MAX], int n) {
+	for (int j = 0; j < n; j++) {
+		for (int i = 0; i < n - 1; i++) {
+			for (int k = i + 1; k < n; k++) {
+				if (j % 2 == 0) { // Cột chẵn
+					if (a[i][j] > a[k][j]) {
+						int temp = a[i][j];
+						a[i][j] = a[k][j];
+						a[k][j] = temp;
+					}
+				}
+				else { // Cột lẻ
+					if (a[i][j] < a[k][j]) {
+						int temp = a[i][j];
+						a[i][j] = a[k][j];
+						a[k][j] = temp;
+					}
+				}
+			}
+		}
+	}
+}
 
+void sapXepCheoChinhVaPhu(int a[MAX][MAX], int n) {
+	// Thu thập các phần tử trên các đường chéo chính và phụ
+	int temp[MAX * 2];
+	int k = 0;
+
+	for (int i = 0; i < n; i++) {
+		temp[k++] = a[i][i]; // Đường chéo chính
+		temp[k++] = a[i][n - i - 1]; // Đường chéo phụ
+	}
+
+	// Sắp xếp các phần tử này
+	for (int i = 0; i < k - 1; i++) {
+		for (int j = i + 1; j < k; j++) {
+			if (temp[i] > temp[j]) {
+				int t = temp[i];
+				temp[i] = temp[j];
+				temp[j] = t;
+			}
+		}
+	}
+
+	// Gán lại các phần tử đã sắp xếp vào ma trận
+	k = 0;
+	for (int i = 0; i < n; i++) {
+		a[i][i] = temp[k++];
+		a[i][n - i - 1] = temp[k++];
+	}
+}
 
 void menu() {
 	int a[MAX][MAX], n;
@@ -144,7 +194,14 @@ void menu() {
 			sapXepDong(a, n);
 			xuatMaTran(a, n);
 			break;
-		
+		case 4:
+			sapXepCot(a, n);
+			xuatMaTran(a, n);
+			break;
+		case 5:
+			sapXepCheoChinhVaPhu(a, n);
+			xuatMaTran(a, n);
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
