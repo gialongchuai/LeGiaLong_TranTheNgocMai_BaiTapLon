@@ -159,6 +159,54 @@ void sapXepCheoChinhVaPhu(int a[MAX][MAX], int n) {
 	}
 }
 
+void diChuyenChanLe(int a[MAX][MAX], int n) {
+	int chan[MAX * MAX], le[MAX * MAX];
+	int chanCount = 0, leCount = 0;
+
+	// Phân loại các phần tử chẵn và lẻ
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (a[i][j] % 2 == 0) {
+				chan[chanCount++] = a[i][j];
+			}
+			else {
+				le[leCount++] = a[i][j];
+			}
+		}
+	}
+
+	// Gán lại các phần tử chẵn vào các dòng đầu
+	int k = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (k < chanCount) {
+				a[i][j] = chan[k++];
+			}
+		}
+	}
+
+	// Gán lại các phần tử lẻ vào các dòng cuối
+	k = 0;
+	for (int i = chanCount / n; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (k < leCount) {
+				a[i][j] = le[k++];
+			}
+		}
+	}
+}
+
+	bool kiemTraDoiXungDuongCheoChinh(int a[MAX][MAX], int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < i; j++) {
+			if (a[i][j] != a[j][i]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void menu() {
 	int a[MAX][MAX], n;
 	int choice;
@@ -201,6 +249,18 @@ void menu() {
 		case 5:
 			sapXepCheoChinhVaPhu(a, n);
 			xuatMaTran(a, n);
+			break;
+		case 6:
+			diChuyenChanLe(a, n);
+			xuatMaTran(a, n);
+			break;
+		case 7:
+			if (kiemTraDoiXungDuongCheoChinh(a, n)) {
+				printf("Ma tran doi xung qua duong cheo chinh\n");
+			}
+			else {
+				printf("Ma tran khong doi xung qua duong cheo chinh\n");
+			}
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
