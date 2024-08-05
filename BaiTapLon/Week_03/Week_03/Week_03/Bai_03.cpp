@@ -132,6 +132,37 @@ void xuatCucTieu(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
 	printf("\n");
 }
 
+// Hàm sắp xếp các dòng của ma trận
+void sapXepDong(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols - 1; j++) {
+			for (int k = j + 1; k < cols; k++) {
+				if ((i % 2 == 0 && a[i][j] < a[i][k]) || (i % 2 != 0 && a[i][j] > a[i][k])) {
+					int temp = a[i][j];
+					a[i][j] = a[i][k];
+					a[i][k] = temp;
+				}
+			}
+		}
+	}
+}
+
+// Hàm sắp xếp các cột của ma trận
+void sapXepCot(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	for (int j = 0; j < cols; j++) {
+		for (int i = 0; i < rows - 1; i++) {
+			for (int k = i + 1; k < rows; k++) {
+				if ((j % 2 == 0 && a[i][j] > a[k][j]) || (j % 2 != 0 && a[i][j] < a[k][j])) {
+					int temp = a[i][j];
+					a[i][j] = a[k][j];
+					a[k][j] = temp;
+				}
+			}
+		}
+	}
+}
+
+
 int main() {
 	int a[MAX_ROWS][MAX_COLS];
 	int rows, cols;
@@ -171,6 +202,14 @@ int main() {
 			break;
 		case 4:
 			xuatCucTieu(a, rows, cols);
+			break;
+		case 5:
+			sapXepDong(a, rows, cols);
+			xuatMaTran(a, rows, cols);
+			break;
+		case 6:
+			sapXepCot(a, rows, cols);
+			xuatMaTran(a, rows, cols);
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
