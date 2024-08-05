@@ -55,7 +55,9 @@ int main() {
 		case 1:
 			bai11();
 			break;
-		
+		case 2:
+			bai12();
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
@@ -84,3 +86,16 @@ void bai11() {
 	printf("So Fibonacci lon nhat nho hon %d (khu de quy) la %d\n", n, fibonacciKhuDeQuy(n));
 }
 
+void bai12() {
+	int x0 = 1, x1 = 0, n;
+	printf("Nhap n: ");
+	scanf("%d", &n);
+	int x = x0, y = x1, temp;
+	for (int i = 1; i <= n; i++) {
+		temp = x;
+		x = x + y;
+		y = 3 * temp + 2 * y;
+	}
+	printf("Gia tri thu %d cua day X la %d\n", n, x);
+	printf("Gia tri thu %d cua day Y la %d\n", n, y);
+}
