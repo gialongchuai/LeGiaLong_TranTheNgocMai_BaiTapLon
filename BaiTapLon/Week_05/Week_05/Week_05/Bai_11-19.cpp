@@ -76,6 +76,9 @@ int main() {
 		case 8:
 			bai18();
 			break;
+		case 9:
+			bai19();
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
@@ -196,4 +199,21 @@ void bai18() {
 		}
 	}
 	printf("Gia tri cua X(%d) la %d\n", n, x[n]);
+}
+
+void bai19() {
+	int n;
+	printf("Nhap n: ");
+	scanf("%d", &n);
+	int a[100];
+	a[0] = 1; // A(1)
+	for (int i = 1; i < n; i++) {
+		if (i % 2 == 1) {
+			a[i] = n * a[i - 1] + 1;
+		}
+		else {
+			a[i] = a[i - 1] + 2;
+		}
+	}
+	printf("Gia tri cua A(%d) la %d\n", n, a[n - 1]);
 }
