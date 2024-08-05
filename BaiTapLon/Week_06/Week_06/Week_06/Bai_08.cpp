@@ -39,6 +39,17 @@ int timChuSoLonNhat(int n) {
 	return (chuSo > max) ? chuSo : max;
 }
 
+// Hàm đệ quy tìm chữ số nhỏ nhất của n
+int timChuSoNhoNhat(int n) {
+	if (n < 10) {
+		return n;
+	}
+	int min = timChuSoNhoNhat(n / 10);
+	int chuSo = n % 10;
+	return (chuSo < min) ? chuSo : min;
+}
+
+
 int main() {
 	int n, choice;
 
@@ -66,6 +77,9 @@ int main() {
 			break;
 		case 3:
 			printf("Chu so lon nhat cua n la: %d\n", timChuSoLonNhat(n));
+			break;
+		case 4:
+			printf("Chu so nho nhat cua n la: %d\n", timChuSoNhoNhat(n));
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
