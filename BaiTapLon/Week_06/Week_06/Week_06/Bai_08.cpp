@@ -49,6 +49,18 @@ int timChuSoNhoNhat(int n) {
 	return (chuSo < min) ? chuSo : min;
 }
 
+// Hàm đệ quy kiểm tra số n có toàn chữ số lẻ hay không
+int kiemTraToanChuSoLe(int n) {
+	if (n == 0) {
+		return 1;
+	}
+	int chuSo = n % 10;
+	if (chuSo % 2 == 0) {
+		return 0; // có chữ số chẵn
+	}
+	return kiemTraToanChuSoLe(n / 10);
+}
+
 
 int main() {
 	int n, choice;
@@ -80,6 +92,14 @@ int main() {
 			break;
 		case 4:
 			printf("Chu so nho nhat cua n la: %d\n", timChuSoNhoNhat(n));
+			break;
+		case 5:
+			if (kiemTraToanChuSoLe(n)) {
+				printf("So n co toan chu so le\n");
+			}
+			else {
+				printf("So n khong co toan chu so le\n");
+			}
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
