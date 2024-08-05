@@ -70,6 +70,9 @@ int main() {
 		case 6:
 			bai16();
 			break;
+		case 7:
+			bai17();
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
@@ -162,4 +165,17 @@ void bai16() {
 		y[i] = y[i - 1] + 2 * y[i - 2] + 3 * y[i - 3];
 	}
 	printf("Gia tri cua Y(%d) la %d\n", n, y[n - 1]);
+}
+
+void bai17() {
+	int n;
+	printf("Nhap n: ");
+	scanf("%d", &n);
+	int x[100];
+	x[0] = 1; // X(1)
+	x[1] = 2; // X(2)
+	for (int i = 2; i < n; i++) {
+		x[i] = x[i - 1] + (i - 1) * x[i - 2];
+	}
+	printf("Gia tri cua X(%d) la %d\n", n, x[n - 1]);
 }
