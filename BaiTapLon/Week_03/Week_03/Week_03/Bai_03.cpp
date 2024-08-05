@@ -85,7 +85,52 @@ int maxBien(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
 	return max;
 }
 
+// Hàm kiểm tra số chữ số 2 xuất hiện trong số
+int demSo2(int num) {
+	int count = 0;
+	while (num > 0) {
+		if (num % 10 == 2) count++;
+		num /= 10;
+	}
+	return count;
+}
 
+// Hàm đếm số lượng phần tử có chữ số 2 trong ma trận
+int demPhanTuChua2(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	int count = 0;
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (demSo2(a[i][j]) > 0) count++;
+		}
+	}
+	return count;
+}
+
+// Hàm tìm các phần tử cực tiểu của ma trận
+void xuatCucTieu(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	printf("Cac phan tu cuc tieu:\n");
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			int isMin = 1;
+			for (int k = 0; k < rows; k++) {
+				if (a[k][j] < a[i][j]) {
+					isMin = 0;
+					break;
+				}
+			}
+			for (int k = 0; k < cols; k++) {
+				if (a[i][k] < a[i][j]) {
+					isMin = 0;
+					break;
+				}
+			}
+			if (isMin) {
+				printf("%d ", a[i][j]);
+			}
+		}
+	}
+	printf("\n");
+}
 
 int main() {
 	int a[MAX_ROWS][MAX_COLS];
@@ -121,7 +166,12 @@ int main() {
 		case 2:
 			printf("Phan tu lon nhat tren bien: %d\n", maxBien(a, rows, cols));
 			break;
-		
+		case 3:
+			printf("So phan tu co chu so 2: %d\n", demPhanTuChua2(a, rows, cols));
+			break;
+		case 4:
+			xuatCucTieu(a, rows, cols);
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
