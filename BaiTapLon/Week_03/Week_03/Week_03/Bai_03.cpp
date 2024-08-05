@@ -162,6 +162,35 @@ void sapXepCot(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
 	}
 }
 
+// Hàm kiểm tra ma trận có giảm dần theo cả cột và dòng (ziczac)
+int kiemTraZiczac(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	for (int i = 0; i < rows - 1; i++) {
+		for (int j = 0; j < cols - 1; j++) {
+			if (a[i][j] <= a[i + 1][j] || a[i][j] <= a[i][j + 1]) {
+				return 0; // Không giảm dần
+			}
+		}
+	}
+	return 1; // Giảm dần
+}
+
+// Hàm liệt kê chỉ số các dòng chứa toàn giá trị chẵn
+void xuatDongChan(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	printf("Cac dong chua toan gia tri chan:\n");
+	for (int i = 0; i < rows; i++) {
+		int allEven = 1;
+		for (int j = 0; j < cols; j++) {
+			if (a[i][j] % 2 != 0) {
+				allEven = 0;
+				break;
+			}
+		}
+		if (allEven) {
+			printf("Dong %d\n", i);
+		}
+	}
+}
+
 
 int main() {
 	int a[MAX_ROWS][MAX_COLS];
@@ -210,6 +239,17 @@ int main() {
 		case 6:
 			sapXepCot(a, rows, cols);
 			xuatMaTran(a, rows, cols);
+			break;
+		case 7:
+			if (kiemTraZiczac(a, rows, cols)) {
+				printf("Ma tran giam dan ziczac\n");
+			}
+			else {
+				printf("Ma tran khong giam dan ziczac\n");
+			}
+			break;
+		case 8:
+			xuatDongChan(a, rows, cols);
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
