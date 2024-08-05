@@ -191,6 +191,43 @@ void xuatDongChan(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
 	}
 }
 
+// Hàm liệt kê các dòng chứa giá trị giảm dần
+void xuatDongGiamDan(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	printf("Cac dong chua gia tri giam dan:\n");
+	for (int i = 0; i < rows; i++) {
+		int decreasing = 1;
+		for (int j = 0; j < cols - 1; j++) {
+			if (a[i][j] <= a[i][j + 1]) {
+				decreasing = 0;
+				break;
+			}
+		}
+		if (decreasing) {
+			printf("Dong %d\n", i);
+		}
+	}
+}
+
+// Hàm tìm giá trị xuất hiện nhiều nhất
+int timGiaTriXuatHienNhieuNhat(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	int count[MAX_ROWS * MAX_COLS] = { 0 };
+	int mostFrequent = a[0][0];
+	int maxCount = 0;
+	int numElements = rows * cols;
+
+	for (int i = 0; i < numElements; i++) {
+		for (int j = 0; j < i; j++) {
+			if (a[i / cols][i % cols] == a[j / cols][j % cols]) {
+				count[i]++;
+			}
+		}
+		if (count[i] > maxCount) {
+			maxCount = count[i];
+			mostFrequent = a[i / cols][i % cols];
+		}
+	}
+	return mostFrequent;
+}
 
 int main() {
 	int a[MAX_ROWS][MAX_COLS];
@@ -250,6 +287,12 @@ int main() {
 			break;
 		case 8:
 			xuatDongChan(a, rows, cols);
+			break;
+		case 9:
+			xuatDongGiamDan(a, rows, cols);
+			break;
+		case 10:
+			printf("Gia tri xuat hien nhieu nhat: %d\n", timGiaTriXuatHienNhieuNhat(a, rows, cols));
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
