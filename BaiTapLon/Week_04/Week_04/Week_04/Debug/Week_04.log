@@ -1,16 +1,17 @@
-﻿Build started 05/08/2024 6:12:11 CH.
+﻿Build started 05/08/2024 6:16:23 CH.
      1>Project "C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Week_04\Week_04.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Bai_11.cpp
-         Bai_11.cpp
-     1>c:\users\msii\desktop\upload\baitaplon\week_04\week_04\week_04\bai_11.cpp(15): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\msii\desktop\upload\baitaplon\week_04\week_04\week_04\bai_11.cpp(29): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : see declaration of 'scanf'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Bai_12.cpp
+         Bai_12.cpp
+     1>c:\users\msii\desktop\upload\baitaplon\week_04\week_04\week_04\bai_12.cpp(72): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(254) : see declaration of 'gets'
+     1>c:\users\msii\desktop\upload\baitaplon\week_04\week_04\week_04\bai_12.cpp(74): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(254) : see declaration of 'gets'
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.lib" /MACHINE:X86 Debug\Bai_11.obj
-     1>LINK : fatal error LNK1168: cannot open C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.exe for writing
-     1>Done Building Project "C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Week_04\Week_04.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.lib" /MACHINE:X86 Debug\Bai_12.obj
+         Week_04.vcxproj -> C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Debug\Week_04.exe
+     1>Done Building Project "C:\Users\MSII\Desktop\upload\BaiTapLon\Week_04\Week_04\Week_04\Week_04.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.32
+Time Elapsed 00:00:00.86
