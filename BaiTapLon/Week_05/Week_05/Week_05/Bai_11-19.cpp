@@ -61,6 +61,9 @@ int main() {
 		case 3:
 			bai13();
 			break;
+		case 4:
+			bai14();
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
@@ -111,4 +114,21 @@ void bai13() {
 		q *= r;
 	}
 	printf("Gia tri phan tu thu %d cua cap so nhan la %d\n", n, q);
+}
+
+void bai14() {
+	int n;
+	printf("Nhap n: ");
+	scanf("%d", &n);
+	int u[100];
+	u[0] = 1; // U(1)
+	for (int i = 1; i < n; i++) {
+		if (i < 5) {
+			u[i] = i + 1;
+		}
+		else {
+			u[i] = u[i - 1] + u[i - 2] + u[i - 3] + u[i - 4] + u[i - 5];
+		}
+	}
+	printf("Gia tri cua U(%d) la %d\n", n, u[n - 1]);
 }
