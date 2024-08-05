@@ -5,7 +5,8 @@
 	c. Tìm chữ số lớn nhất của số nguyên dương n.
 	d. Tìm chữ số nhỏ nhất của số nguyên dương n.
 	e. Hãy kiểm tra số nguyên dương n có toàn chữ số lẻ hay không?
-	f. Hãy kiểm tra số nguyên dương n có toàn chữ số chẵn hay không?
+	f. Hãy kiểm tra số nguyên dương n có toàn chữ số chẵn hay không?
+
 */
 
 #include <stdio.h>
@@ -20,6 +21,13 @@ int timChuSoDauTien(int n) {
 }
 
 
+// Hàm đệ quy tìm chữ số đảo ngược của n
+int timChuSoDaoNguoc(int n, int daoNguoc) {
+	if (n == 0) {
+		return daoNguoc;
+	}
+	return timChuSoDaoNguoc(n / 10, daoNguoc * 10 + n % 10);
+}
 
 int main() {
 	int n, choice;
@@ -43,7 +51,9 @@ int main() {
 		case 1:
 			printf("Chu so dau tien cua n la: %d\n", timChuSoDauTien(n));
 			break;
-		
+		case 2:
+			printf("Chu so dao nguoc cua n la: %d\n", timChuSoDaoNguoc(n, 0));
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
