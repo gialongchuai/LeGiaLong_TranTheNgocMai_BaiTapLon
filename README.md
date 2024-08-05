@@ -1,7 +1,7 @@
 ## 📜 Information
 
 - **Subject:** Programming Techniques
-- **Lecturer:** Nguyen Trong Tien
+- **Lecturer:** **Nguyen Trong Tien**
   
 
 
