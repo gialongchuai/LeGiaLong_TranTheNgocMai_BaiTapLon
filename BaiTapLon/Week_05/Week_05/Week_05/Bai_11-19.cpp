@@ -64,6 +64,9 @@ int main() {
 		case 4:
 			bai14();
 			break;
+		case 5:
+			bai15();
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
@@ -131,4 +134,15 @@ void bai14() {
 		}
 	}
 	printf("Gia tri cua U(%d) la %d\n", n, u[n - 1]);
+}
+void bai15() {
+	int n;
+	printf("Nhap n: ");
+	scanf("%d", &n);
+	int a[100];
+	a[0] = 1; // A(1)
+	for (int i = 1; i < n; i++) {
+		a[i] = (i + 1) * (a[i - 1] + i);
+	}
+	printf("Gia tri cua A(%d) la %d\n", n, a[n - 1]);
 }
