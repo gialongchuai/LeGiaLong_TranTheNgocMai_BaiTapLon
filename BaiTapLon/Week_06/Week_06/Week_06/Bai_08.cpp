@@ -29,6 +29,16 @@ int timChuSoDaoNguoc(int n, int daoNguoc) {
 	return timChuSoDaoNguoc(n / 10, daoNguoc * 10 + n % 10);
 }
 
+// Hàm đệ quy tìm chữ số lớn nhất của n
+int timChuSoLonNhat(int n) {
+	if (n < 10) {
+		return n;
+	}
+	int max = timChuSoLonNhat(n / 10);
+	int chuSo = n % 10;
+	return (chuSo > max) ? chuSo : max;
+}
+
 int main() {
 	int n, choice;
 
@@ -53,6 +63,9 @@ int main() {
 			break;
 		case 2:
 			printf("Chu so dao nguoc cua n la: %d\n", timChuSoDaoNguoc(n, 0));
+			break;
+		case 3:
+			printf("Chu so lon nhat cua n la: %d\n", timChuSoLonNhat(n));
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
