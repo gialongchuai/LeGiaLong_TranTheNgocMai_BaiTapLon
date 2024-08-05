@@ -1,0 +1,135 @@
+﻿/*
+	Bài 3. Tiếp tục các hàm xử lý trên mảng 2 chiều a (bài 1)
+	1. Xuất các cột chỉ chứa số lẻ
+	2. Tìm phần tử lớn nhất trong các phần tử trên biên của ma trận.
+	3. Trong ma trận có bao nhiêu phần tử có chữ số 2 xuất hiện trong các chữ số của nó.
+	4. Xuất các phần tử cực tiểu của ma trận.
+	5. Sắp xếp ma trận sao cho: các dòng có chỉ số lẻ thì tăng dần, còn các dòng có chỉ số chẵn 
+	thì giảm dần.
+	6. Sắp xếp ma trận sao cho: các cột có chỉ số lẻ thì giảm dần, còn các cột có chỉ số chẵn thì 
+	tăng dần.
+	7. Kiểm tra các giá trị trong ma trận có giảm dần theo cột và dòng (ziczac)
+	8. Liệt kê chỉ số các dòng chứa toàn giá trị chẵn
+	9. Liệt kê các dòng chứa giá trị giảm dần
+	10. Tìm giá trị xuất hiện nhiều nhất trong ma trận
+	11. Tìm các chữ số xuất hiện nhiều nhất trong ma trận
+	12. Liệt kê các cột có tổng nhỏ nhất trong ma trận
+	13. Hoán vị hai cột i và j trong ma trận
+	14. Hoán vị hai dòng k và l trong ma trận.
+
+*/
+
+#include <stdio.h>
+#include <limits.h>
+
+#define MAX_ROWS 100
+#define MAX_COLS 100
+
+// Hàm nhập ma trận
+void nhapMaTran(int a[MAX_ROWS][MAX_COLS], int *rows, int *cols) {
+	printf("Nhap so dong: ");
+	scanf("%d", rows);
+	printf("Nhap so cot: ");
+	scanf("%d", cols);
+	printf("Nhap cac phan tu cua ma tran:\n");
+	for (int i = 0; i < *rows; i++) {
+		for (int j = 0; j < *cols; j++) {
+			printf("a[%d][%d] = ", i, j);
+			scanf("%d", &a[i][j]);
+		}
+	}
+}
+
+// Hàm xuất ma trận
+void xuatMaTran(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			printf("%d ", a[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+// Hàm xuất các cột chỉ chứa số lẻ
+void xuatCotChan(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	printf("Cac cot chi chua so le:\n");
+	for (int j = 0; j < cols; j++) {
+		int isOddColumn = 1;
+		for (int i = 0; i < rows; i++) {
+			if (a[i][j] % 2 == 0) {
+				isOddColumn = 0;
+				break;
+			}
+		}
+		if (isOddColumn) {
+			printf("Cot %d: ", j);
+			for (int i = 0; i < rows; i++) {
+				printf("%d ", a[i][j]);
+			}
+			printf("\n");
+		}
+	}
+}
+
+// Hàm tìm phần tử lớn nhất trên biên của ma trận
+int maxBien(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	int max = a[0][0];
+	for (int i = 0; i < rows; i++) {
+		if (a[i][0] > max) max = a[i][0];
+		if (a[i][cols - 1] > max) max = a[i][cols - 1];
+	}
+	for (int j = 0; j < cols; j++) {
+		if (a[0][j] > max) max = a[0][j];
+		if (a[rows - 1][j] > max) max = a[rows - 1][j];
+	}
+	return max;
+}
+
+
+
+int main() {
+	int a[MAX_ROWS][MAX_COLS];
+	int rows, cols;
+	int choice;
+
+	nhapMaTran(a, &rows, &cols);
+
+	do {
+		printf("\nMenu:\n");
+		printf("1. Xuat cac cot chi chua so le\n");
+		printf("2. Tim phan tu lon nhat tren bien\n");
+		printf("3. Dem so phan tu co chu so 2\n");
+		printf("4. Xuat cac phan tu cuc tieu\n");
+		printf("5. Sap xep cac dong (dong le tang, dong chan giam)\n");
+		printf("6. Sap xep cac cot (cot le giam, cot chan tang)\n");
+		printf("7. Kiem tra gia tri giam dan ziczac\n");
+		printf("8. Liet ke cac dong chua toan gia tri chan\n");
+		printf("9. Liet ke cac dong chua gia tri giam dan\n");
+		printf("10. Tim gia tri xuat hien nhieu nhat\n");
+		printf("11. Tim cac chu so xuat hien nhieu nhat\n");
+		printf("12. Liet ke cac cot co tong nho nhat\n");
+		printf("13. Hoan vi hai cot\n");
+		printf("14. Hoan vi hai dong\n");
+		printf("0. Thoat\n");
+		printf("Chon chuc nang: ");
+		scanf("%d", &choice);
+
+		switch (choice) {
+		case 1:
+			xuatCotChan(a, rows, cols);
+			break;
+		case 2:
+			printf("Phan tu lon nhat tren bien: %d\n", maxBien(a, rows, cols));
+			break;
+		
+		case 0:
+			printf("Thoat chuong trinh.\n");
+			break;
+		default:
+			printf("Chuc nang khong ton tai.\n");
+			break;
+		}
+	} while (choice != 0);
+
+	return 0;
+}
