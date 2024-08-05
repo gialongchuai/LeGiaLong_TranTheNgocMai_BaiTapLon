@@ -278,6 +278,24 @@ void xuatCotTongNhoNhat(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
 	}
 }
 
+// Hàm hoán vị hai cột i và j
+void hoanViCot(int a[MAX_ROWS][MAX_COLS], int rows, int cols, int i, int j) {
+	for (int k = 0; k < rows; k++) {
+		int temp = a[k][i];
+		a[k][i] = a[k][j];
+		a[k][j] = temp;
+	}
+}
+
+// Hàm hoán vị hai dòng k và l
+void hoanViDong(int a[MAX_ROWS][MAX_COLS], int rows, int cols, int k, int l) {
+	for (int j = 0; j < cols; j++) {
+		int temp = a[k][j];
+		a[k][j] = a[l][j];
+		a[l][j] = temp;
+	}
+}
+
 int main() {
 	int a[MAX_ROWS][MAX_COLS];
 	int rows, cols;
@@ -349,6 +367,22 @@ int main() {
 		case 12:
 			xuatCotTongNhoNhat(a, rows, cols);
 			break;
+		case 13: {
+					 int i, j;
+					 printf("Nhap chi so cot i va j: ");
+					 scanf("%d %d", &i, &j);
+					 hoanViCot(a, rows, cols, i, j);
+					 xuatMaTran(a, rows, cols);
+					 break;
+		}
+		case 14: {
+					 int k, l;
+					 printf("Nhap chi so dong k va l: ");
+					 scanf("%d %d", &k, &l);
+					 hoanViDong(a, rows, cols, k, l);
+					 xuatMaTran(a, rows, cols);
+					 break;
+		}
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
