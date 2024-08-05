@@ -229,6 +229,55 @@ int timGiaTriXuatHienNhieuNhat(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
 	return mostFrequent;
 }
 
+// Hàm tìm các chữ số xuất hiện nhiều nhất
+void timChuSoXuatHienNhieuNhat(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	int digitCount[10] = { 0 };
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			int num = a[i][j];
+			while (num > 0) {
+				digitCount[num % 10]++;
+				num /= 10;
+			}
+		}
+	}
+	int maxCount = 0;
+	for (int i = 0; i < 10; i++) {
+		if (digitCount[i] > maxCount) {
+			maxCount = digitCount[i];
+		}
+	}
+	printf("Cac chu so xuat hien nhieu nhat:\n");
+	for (int i = 0; i < 10; i++) {
+		if (digitCount[i] == maxCount) {
+			printf("%d ", i);
+		}
+	}
+	printf("\n");
+}
+
+// Hàm liệt kê các cột có tổng nhỏ nhất
+void xuatCotTongNhoNhat(int a[MAX_ROWS][MAX_COLS], int rows, int cols) {
+	int colSum[MAX_COLS] = { 0 };
+	for (int j = 0; j < cols; j++) {
+		for (int i = 0; i < rows; i++) {
+			colSum[j] += a[i][j];
+		}
+	}
+	int minSum = INT_MAX;
+	for (int j = 0; j < cols; j++) {
+		if (colSum[j] < minSum) {
+			minSum = colSum[j];
+		}
+	}
+	printf("Cac cot co tong nho nhat:\n");
+	for (int j = 0; j < cols; j++) {
+		if (colSum[j] == minSum) {
+			printf("Cot %d\n", j);
+		}
+	}
+}
+
 int main() {
 	int a[MAX_ROWS][MAX_COLS];
 	int rows, cols;
@@ -293,6 +342,12 @@ int main() {
 			break;
 		case 10:
 			printf("Gia tri xuat hien nhieu nhat: %d\n", timGiaTriXuatHienNhieuNhat(a, rows, cols));
+			break;
+		case 11:
+			timChuSoXuatHienNhieuNhat(a, rows, cols);
+			break;
+		case 12:
+			xuatCotTongNhoNhat(a, rows, cols);
 			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
