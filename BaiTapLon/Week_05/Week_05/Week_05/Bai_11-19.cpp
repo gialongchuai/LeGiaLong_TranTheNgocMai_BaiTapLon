@@ -58,6 +58,9 @@ int main() {
 		case 2:
 			bai12();
 			break;
+		case 3:
+			bai13();
+			break;
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
@@ -98,4 +101,14 @@ void bai12() {
 	}
 	printf("Gia tri thu %d cua day X la %d\n", n, x);
 	printf("Gia tri thu %d cua day Y la %d\n", n, y);
+}
+void bai13() {
+	int a, r, n;
+	printf("Nhap a, r va n: ");
+	scanf("%d %d %d", &a, &r, &n);
+	int q = a;
+	for (int i = 2; i <= n; i++) {
+		q *= r;
+	}
+	printf("Gia tri phan tu thu %d cua cap so nhan la %d\n", n, q);
 }
