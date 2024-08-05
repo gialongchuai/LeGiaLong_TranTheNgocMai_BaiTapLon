@@ -1,6 +1,6 @@
 ﻿/*
-	Bài 1: Viết hàm tính các biểu thức S(n) theo 2 cách đệ quy và khử đệ quy (nếu có thể), với n 
-	là số nguyên dương nhập từ bàn phím
+Bài 1: Viết hàm tính các biểu thức S(n) theo 2 cách đệ quy và khử đệ quy (nếu có thể), với n
+là số nguyên dương nhập từ bàn phím
 */
 
 #include <stdio.h>
