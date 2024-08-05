@@ -138,6 +138,29 @@ int timKiemKhachHang(const char *ten) {
 	return -1;
 }
 
+
+
+
+// Hàm so sánh để sắp xếp theo tiền phải trả
+int compareByTienPhaiTra(const void *a, const void *b) {
+	return ((KhachHang*)a)->tienPhaiTra - ((KhachHang*)b)->tienPhaiTra;
+}
+
+// Hàm so sánh để sắp xếp theo tên
+int compareByName(const void *a, const void *b) {
+	return strcmp(((KhachHang*)a)->hoTen, ((KhachHang*)b)->hoTen);
+}
+
+// Hàm sắp xếp danh sách khách hàng theo số tiền phải trả
+void sapXepTheoTienPhaiTra() {
+	qsort(dskh, soLuongKhach, sizeof(KhachHang), compareByTienPhaiTra);
+}
+
+// Hàm sắp xếp danh sách khách hàng theo họ tên
+void sapXepTheoTen() {
+	qsort(dskh, soLuongKhach, sizeof(KhachHang), compareByName);
+}
+
 int main() {
 	// Đọc dữ liệu từ file
 	docDuLieuTuFile("C:\\Users\\MSII\\Desktop\\upload\\BaiTapLon\\Week_02\\Week_02\\khachhang.txt");
@@ -170,7 +193,35 @@ int main() {
 			xuatThongTinTheoPhongVaXuatChieu();
 			break;
 		
-		
+		case 5:
+			sapXepTheoTienPhaiTra();
+			xuatDanhSachKhachHang();
+			break;
+		case 6:
+			sapXepTheoTen();
+			xuatDanhSachKhachHang();
+			break;
+		case 7: {
+					char ten[MAX_NAME_LEN];
+					printf("Nhap ten khach hang: ");
+					scanf(" %[^\n]", ten);
+					int index = timKiemKhachHang(ten);
+					if (index != -1) {
+						printf("Khach hang %s duoc tim thay.\n", ten);
+						printf("Ho Ten: %s\n", dskh[index].hoTen);
+						printf("So Dien Thoai: %s\n", dskh[index].soDienThoai);
+						printf("So Ve Nguoi Lon: %d\n", dskh[index].soVeNguoiLon);
+						printf("So Ve Tre Em: %d\n", dskh[index].soVeTreEm);
+						printf("Ten Phim: %s\n", dskh[index].tenPhim);
+						printf("Phong Chieu: %s\n", dskh[index].phongChieu);
+						printf("Xuat Chieu: %s\n", dskh[index].xuatChieu);
+						printf("Tien Phai Tra: %d\n", dskh[index].tienPhaiTra);
+					}
+					else {
+						printf("Khach hang %s khong tim thay.\n", ten);
+					}
+					break;
+		}
 		case 0:
 			printf("Thoat chuong trinh.\n");
 			break;
