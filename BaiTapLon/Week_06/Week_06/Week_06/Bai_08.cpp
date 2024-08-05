@@ -61,6 +61,17 @@ int kiemTraToanChuSoLe(int n) {
 	return kiemTraToanChuSoLe(n / 10);
 }
 
+// Hàm đệ quy kiểm tra số n có toàn chữ số chẵn hay không
+int kiemTraToanChuSoChan(int n) {
+	if (n == 0) {
+		return 1;
+	}
+	int chuSo = n % 10;
+	if (chuSo % 2 != 0) {
+		return 0; // có chữ số lẻ
+	}
+	return kiemTraToanChuSoChan(n / 10);
+}
 
 int main() {
 	int n, choice;
@@ -99,6 +110,14 @@ int main() {
 			}
 			else {
 				printf("So n khong co toan chu so le\n");
+			}
+			break;
+		case 6:
+			if (kiemTraToanChuSoChan(n)) {
+				printf("So n co toan chu so chan\n");
+			}
+			else {
+				printf("So n khong co toan chu so chan\n");
 			}
 			break;
 		case 0:
