@@ -8,11 +8,15 @@
 ## 📜 Members
 
 - **Le Gia Long**
-- **Dinh Quang Phu**
+- **Tran The Ngoc Mai**
   
-
 
 
 ## 📜 Content
 
-- **Chapter 2:** Array Processing Techniques
+- **Lesson 01:** Techniques for Handling One-Dimensional Arrays, Pointers, and Exception Handling
+- **Lesson 02:** Search and Sorting Algorithms
+- **Lesson 03:** Struct Arrays & File Handling
+- **Lesson 04:** String Handling
+- **Lesson 05:** Recursion Techniques
+- **Lesson 06:** Advanced Recursion Techniques
